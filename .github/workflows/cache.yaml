@@ -26,5 +26,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-v3-${{ github.ref_name }}
             ${{ runner.os }}-cache-v3-
+      - run: |
+          ls -la apps/web/.turbo
+          ls -la node_modules/.cache/turbo
       - name: Build repo
         run: npm run build -- -vvv
