@@ -20,7 +20,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules/.cache
-          key: ${{ runner.os }}-cache-${{ github.ref_name }}
+          key: ${{ runner.os }}-cache-v2-${{ github.ref_name }}
           restore-keys: |
             ${{ runner.os }}-cache-v2-${{ github.ref_name }}
             ${{ runner.os }}-cache-v2-
