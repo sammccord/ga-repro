@@ -25,4 +25,4 @@ jobs:
             ${{ runner.os }}-cache-v2-${{ github.ref_name }}
             ${{ runner.os }}-cache-v2-
       - name: Build repo
-        run: npm run build
+        run: npm run build -- -vvv
