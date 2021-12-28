@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16.x
           cache: 'npm'
-      - run: npm install -g turbo
+      - run: npm install
       - name: Restore turbo cache
         uses: actions/cache@v2
         with:
@@ -25,4 +25,4 @@ jobs:
             ${{ runner.os }}-cache-${{ github.ref_name }}
             ${{ runner.os }}-cache-
       - name: Build repo
-        run: npm run build
+        run: npm run build -- --cache-dir=./.cache
