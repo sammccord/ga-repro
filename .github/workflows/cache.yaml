@@ -24,5 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cache-${{ github.ref_name }}
             ${{ runner.os }}-cache-
+      - run: ls -la ./.cache
       - name: Build repo
         run: npm run build -- --cache-dir=./.cache
+      - run: ls -la ./.cache
