@@ -18,7 +18,7 @@
   },
   "turbo": {
     "baseBranch": "origin/main",
-    "npmClient": "pnpm",
+    "npmClient": "yarn",
     "pipeline": {
       "build": {
         "dependsOn": [
@@ -40,5 +40,8 @@
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "yarn": "^1.22.17"
   }
 }

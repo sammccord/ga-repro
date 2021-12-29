@@ -1,19 +1,15 @@
-name: Cache stack
-
-on:
-  push:
-    branches:
-      - main
 jobs:
-  cache:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - name: Set up node
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
-          node-version: 16.x
-      - run: npx pnpm install
+          cache: "yarn"
+          cache-dependency-path: yarn.lock
+          node-version: "16"
+
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v2
@@ -22,5 +18,11 @@ jobs:
           key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ github.job }}-${{ github.ref_name }}-
-      - name: Build repo
-        run: npm run build
+
+      - name: Install dependencies
+        run: |
+          npm install -g yarn
+          yarn
+      - name: Build
+        run: |
+          yarn run build --cache-dir=".turbo"
