@@ -1,5 +1,11 @@
+name: Cache stack
+
+on:
+  push:
+    branches:
+      - main
 jobs:
-  build:
+  cache:
     runs-on: ubuntu-latest
 
     steps:
