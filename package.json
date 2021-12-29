@@ -18,6 +18,7 @@
   },
   "turbo": {
     "baseBranch": "origin/main",
+    "npmClient": "pnpm",
     "pipeline": {
       "build": {
         "dependsOn": [
