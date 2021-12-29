@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
-          cache-dependency-path: pnpm-lock.json
+          cache-dependency-path: pnpm-lock.yaml
           cache: "pnpm"
       - run: pnpm install
       - name: Turbo Cache
