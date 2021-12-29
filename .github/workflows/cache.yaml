@@ -14,17 +14,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16.x
+          cache-dependency-path: package-lock.json
           cache: 'npm'
       - run: npm install
-      - name: Restore turbo cache
+      - name: Turbo Cache
+        id: turbo-cache
         uses: actions/cache@v2
         with:
-          path: |
-            node_modules/.cache
-            **/.turbo
-          key: ${{ runner.os }}-cache-v3-${{ github.ref_name }}
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-cache-v3-${{ github.ref_name }}
-            ${{ runner.os }}-cache-v3-
+            turbo-${{ github.job }}-${{ github.ref_name }}-
       - name: Build repo
-        run: npm run build -- -vvv
+        run: npm run build -- -vvv --cache-dir=".turbo"
