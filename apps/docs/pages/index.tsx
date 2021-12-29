@@ -1,4 +1,4 @@
-import { Button } from "ui";
+import { Button } from "@scope/ui";
 
 export default function Docs() {
   return (

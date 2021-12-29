@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "@scope/ui",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -7,7 +7,7 @@
   "devDependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
-    "tsconfig": "*",
+    "@scope/tsconfig": "*",
     "typescript": "^4.5.3"
   }
 }
